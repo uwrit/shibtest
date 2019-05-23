@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Shibboleth Test</title>
+</head>
+
+<body>
+    <script>
+        const getPro = async () => {
+            let resp = await fetch('api/protected');
+            let data = await resp.text();
+            let pro = document.getElementById('pro-data');
+            setInner(pro, data);
+        };
+
+        const setInner = (node, m) => {
+            node.innerText = m;
+        }
+    </script>
+    <div>
+        <label for="pro-btn">Protected Data:</label>
+        <p id="pro-data">Test!</p>
+        <button type="button" id="pro-btn" onclick="getPro()">Get Protected</button>
+    </div>
+</body>
+
+</html>
